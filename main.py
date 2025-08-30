@@ -5,7 +5,7 @@ from telegram.ext import Application, CommandHandler
 from telebot.asyncio_helper import ApiGram
 
 # هنا تكتب الرمز السري بتاع البوت
-TOKEN = "YOUR_BOT_TOKEN"
+TOKEN = "8184537983:AAFmdN6BTH71K1jAqko46C7P5q9lFr3gldg"
 
 # هنا نجهز تطبيق FastAPI
 app = FastAPI()
