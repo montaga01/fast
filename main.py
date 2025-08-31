@@ -20,7 +20,7 @@ application.add_handler(CommandHandler("start", start))
 async def on_startup():
     await application.initialize()
     await application.start()
-    await application.bot.set_webhook(url=f"https://your-vercel-domain.vercel.app/{TOKEN}")
+    await application.bot.set_webhook(url=f"https://fast-eight-plum.vercel.app/{TOKEN}")
 
 @app.on_event("shutdown")
 async def on_shutdown():
@@ -29,6 +29,7 @@ async def on_shutdown():
 
 @app.post(f"/{TOKEN}")
 async def telegram_webhook(request: Request):
+    print ("الحمد لله الرسالة وصلت")
     data = await request.json()
     update = Update.de_json(data, application.bot)
     await application.process_update(update)
