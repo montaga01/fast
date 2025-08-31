@@ -9,6 +9,9 @@ TOKEN = os.environ.get("TELEGRAM_TOKEN")
 
 # هنا نجهز تطبيق FastAPI
 app = FastAPI()
+@app.get("/")
+async def get_root():
+    return {"status": "ok", "message": "Bot is alive and listening!"}
 
 # هنا نجهز البوت
 application = Application.builder().token(TOKEN).build()
