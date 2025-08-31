@@ -1,7 +1,7 @@
 import os
 from fastapi import FastAPI, Request
 from telegram import Update
-from telegram.ext import Application
+from telegram.ext import Application, MessageHandler, filters, ContextTypes
 
 TOKEN = os.environ.get("TELEGRAM_TOKEN")
 
@@ -19,6 +19,10 @@ async def on_shutdown():
     await application.stop()
     await application.shutdown()
 
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("📨 استلمنا رسالتك، وجاري المعالجة...")
+
+
 @app.post(f"/{TOKEN}")
 async def telegram_webhook(request: Request):
     data = await request.json()
@@ -34,6 +38,7 @@ async def telegram_webhook(request: Request):
 
         # إرسال رد مباشر بدون هاندلر
         await application.bot.send_message(chat_id=chat_id, text=f"📨 استلمنا رسالتك: {user_text}")
+        application.add_handler(MessageHandler(filters.ALL, start))
     else:
         print("⚠️ لا توجد رسالة قابلة للرد:", data)
 
