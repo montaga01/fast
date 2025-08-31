@@ -23,7 +23,7 @@ async def start(update, context):
 # إضافة الأمر /start للتعامل معاه
 application.add_handler(CommandHandler("start", start))
 
-@app.post(f"/{TOKEN}")
+#@app.post(f"/{TOKEN}")
 async def webhook_handler(request: Request):
     print ("الحمد لله الرسالة وصلت")
     update = Update.de_json(data=await request.json(), bot=application.bot)
