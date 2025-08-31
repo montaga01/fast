@@ -2,7 +2,7 @@ import uvicorn
 from fastapi import FastAPI, Request
 from telegram import Update
 from telegram.ext import Application, CommandHandler
-from telebot.asyncio_helper import ApiGram
+#from telebot.asyncio_helper import ApiGram
 
 # هنا تكتب الرمز السري بتاع البوت
 TOKEN = "8184537983:AAFmdN6BTH71K1jAqko46C7P5q9lFr3gldg"
