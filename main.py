@@ -10,6 +10,7 @@ application = Application.builder().token(TOKEN).build()
 
 @app.on_event("startup")
 async def on_startup():
+    application.add_handler(MessageHandler(filters.ALL, start))
     await application.initialize()
     await application.start()
     await application.bot.set_webhook(url=f"https://almontaga-s-project.vercel.app/{TOKEN}")
