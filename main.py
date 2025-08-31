@@ -22,6 +22,7 @@ application.add_handler(CommandHandler("start", start))
 
 @app.post(f"/{TOKEN}")
 async def webhook_handler(request: Request):
+    print ("الحمد لله الرسالة وصلت")
     update = Update.de_json(data=await request.json(), bot=application.bot)
     await application.process_update(update)
     return {"status": "ok"}
