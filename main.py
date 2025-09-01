@@ -36,9 +36,9 @@ async def telegram_webhook(request: Request):
     if update.message and update.message.text:
         chat_id = update.message.chat.id
         user_text = update.message.text
-
+        full_name = update.effective_user.full_name 
         # إرسال رد مباشر بدون هاندلر
-        await application.bot.send_message(chat_id=chat_id, text=f"📨 الحمد لله وصلت رسالتك: {user_text}")
+        await application.bot.send_message(chat_id=chat_id, text=f"📨 الحمد لله يا {full_name} وصلت رسالتك: {user_text}")
         application.add_handler(MessageHandler(filters.ALL, start))
     else:
         print("⚠️ لا توجد رسالة قابلة للرد:", data)
