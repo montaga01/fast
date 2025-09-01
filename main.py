@@ -21,6 +21,8 @@ async def on_shutdown():
     await application.shutdown()
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    chat_id = 7310071310
+    await bot.send_message(chat_id=chat_id, text="📨 الحمد لله يا {full_name} وصلت رسالتك: {user_text}")
     await update.message.reply_text("📨 استلمنا رسالتك، وجاري المعالجة...")
 
 
