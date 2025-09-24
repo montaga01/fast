@@ -1,13 +1,10 @@
 
-from telegram import Update,Bot
+from telegram import Update
 from telegram.ext import Application, MessageHandler, filters, ContextTypes, CommandHandler
 
 # توكن البوت من BotFather
-TOKEN = "8184537983:AAFmdN6BTH71K1jAqko46C7P5q9lFr3gldg"
+TOKEN = "8156729300:AAEn59qQjjGzdLL8uBRxaDEW0dAO7czYISI"
 
-
-bot = Bot(token="8184537983:AAFmdN6BTH71K1jAqko46C7P5q9lFr3gldg")
-print(bot.get_me())
 
 # دالة الرد على الرسائل
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
