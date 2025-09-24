@@ -1,6 +1,6 @@
 
 from telegram import Update
-from telegram.ext import Application, MessageHandler, filters, ContextTypes
+from telegram.ext import Application, MessageHandler, filters, ContextTypes, CommandHandler
 
 # توكن البوت من BotFather
 TOKEN = "8184537983:AAFmdN6BTH71K1jAqko46C7P5q9lFr3gldg"
@@ -13,6 +13,7 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
 def main():
     app = Application.builder().token(TOKEN).build()
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
+    app.add_handler(CommandHandler("start", echo))
     print ("الحمد لله البوت اشتغل...")
     app.run_polling()
 
