@@ -7,6 +7,9 @@ TOKEN = "8184537983:AAFmdN6BTH71K1jAqko46C7P5q9lFr3gldg"
 
 # دالة الرد على الرسائل
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    print("وصلت رسالة:", update.message.text)
+    await update.message.reply_text(update.message.text)
     await update.message.reply_text(update.message.text)
 
 # دالة التشغيل الرئيسية
